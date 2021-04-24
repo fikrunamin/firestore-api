@@ -1,8 +1,8 @@
 <?php 
 
-if(!empty($_POST['id_masjid']) && !empty($_POST['status'])):
-	$id_masjid = $_POST['id_masjid'];
-	$status = $_POST['status'];
+if(!empty($_GET['id_masjid']) && !empty($_GET['status'])):
+	$id_masjid = $_GET['id_masjid'];
+	$status = $_GET['status'];
 ?>
 
 	<!DOCTYPE html>
