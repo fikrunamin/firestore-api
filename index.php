@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_POST['id_masjid']) && isset($_POST['status'])):
+if(!empty($_POST['id_masjid']) && !empty($_POST['status'])):
 
 $id_masjid = $_POST['id_masjid'];
 $status = $_POST['status'];
