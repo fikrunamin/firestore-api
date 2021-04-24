@@ -3,11 +3,21 @@
 if(!empty($_POST['id_masjid']) && !empty($_POST['status'])):
 	$id_masjid = $_POST['id_masjid'];
 	$status = $_POST['status'];
-	echo '
+?>
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>API Firestore</title>
+		</head>
+		<body><!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 			<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
+
+			<!-- Add Firebase products that you want to use -->
 			<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
 			<script>
+			  // Your web app's Firebase configuration
 			  var firebaseConfig = {
 			    apiKey: "AIzaSyBHNPkFp75wasU8uBVZBfirQ5yOYQ6SUak",
 			    authDomain: "tutorial-flutter-942ec.firebaseapp.com",
@@ -16,11 +26,12 @@ if(!empty($_POST['id_masjid']) && !empty($_POST['status'])):
 			    messagingSenderId: "584324125013",
 			    appId: "1:584324125013:web:e0a3fbbc16f4b08ba71fdc"
 			  };
+			  // Initialize Firebase
 			  firebase.initializeApp(firebaseConfig);
 
 			  var db = firebase.firestore()
-			  db.collection("masjid").doc("$id_masjid").set({
-				    status: "$status",
+			  db.collection("masjid").doc('<?= $id_masjid ?>').set({
+				    status: "<?= $status ?>",
 				})
 				.then((docRef) => {
 				    console.log("Document written with ID: ", docRef);
@@ -29,7 +40,10 @@ if(!empty($_POST['id_masjid']) && !empty($_POST['status'])):
 				    console.error("Error adding document: ", error);
 				});
 			</script>
-			';
+		</body>
+	</html>
+
+<?php 
 	echo "Berhasil";
 	endif;
 ?>
