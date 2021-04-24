@@ -45,4 +45,5 @@ $status = $_POST['status'];
 	</body>
 </html>
 
+echo "Berhasil";
 <?php endif; ?>
